@@ -1,0 +1,60 @@
+2021-06-06T22:53:37.7637822+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T22:54:31.1332225+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T22:55:02.6668261+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T22:55:45.5849506+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:00:16.6048431+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:04:29.3730504+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:05:00.1622750+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:05:45.4683132+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:06:41.4940132+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:07:11.8941411+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:19:09.1587877+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:19:09.5795635+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:19:11.0954683+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:19:11.5728091+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:19:11.5994136+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:19:31.7193307+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:19:32.9634966+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:19:33.3011602+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:19:33.3227361+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:21:26.8058499+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:21:27.9787157+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:21:28.2796182+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:21:28.2976010+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:22:13.1612686+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:22:14.3549016+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:22:14.6531251+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:22:14.6716070+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:22:31.4770567+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:22:32.6544419+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:22:32.9506975+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:22:32.9682463+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:24:53.2164578+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:24:54.4203129+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:24:54.7234943+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:24:54.7421201+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:25:52.7205729+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:25:53.9375758+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:25:54.3145688+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:25:54.3384163+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:26:02.7768790+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnConfiguring
+2021-06-06T23:26:03.9785649+04:00 [INF] (vfinance_api.Helper.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:26:04.3088520+04:00 [INF] (vfinance_api.Helper.vFinDbContext) OnModelCreating
+2021-06-06T23:26:04.3294087+04:00 [INF] (vfinance_api.Helper.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:34:12.9500436+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:34:13.2420805+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-06T23:34:14.8060675+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:34:15.2034876+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-06T23:34:15.2295849+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:34:33.7547150+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-06T23:34:34.0117603+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:54:41.4921471+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:54:41.9212468+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-06T23:54:43.3716720+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:54:43.8521704+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-06T23:54:43.8770445+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-06T23:59:44.6837426+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-06T23:59:45.0328790+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-06T23:59:46.3398306+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-06T23:59:46.7272757+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-06T23:59:46.7527746+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating

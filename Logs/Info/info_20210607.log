@@ -1,0 +1,152 @@
+2021-06-07T00:00:17.7715181+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:00:03.724Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string" 
+} Responded with [500] in 292ms
+2021-06-07T00:07:36.7526875+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:07:37.0376241+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:07:38.3812087+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:07:38.9421932+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:07:38.9700604+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:07:56.7535376+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:07:55.287Z",
+  "category": "string",
+  "amount": 0,
+  "description": "string",
+  "attachments": [
+    {
+      "fileName": "string",
+      "fileArray": 0
+    }
+  ]
+} Responded with [500] in 138ms
+2021-06-07T00:12:47.9218634+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:12:48.2162940+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:12:49.4859497+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:12:49.8797238+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:12:49.9040935+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:13:42.7786500+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:13:05.641Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string"
+  
+} Responded with [500] in 28147ms
+2021-06-07T00:15:38.4820248+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:13:05.641Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string"
+  
+} Responded with [500] in 2823ms
+2021-06-07T00:16:25.2986296+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:13:05.641Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string"
+  
+} Responded with [500] in 12078ms
+2021-06-07T00:18:16.0442910+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:18:16.3841268+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:18:17.9633072+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:18:18.3700003+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:18:18.3946454+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:18:47.2128503+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:18:33.065Z",
+  "category": "string",
+  "amount": 190,
+  "description": "string"
+  
+} Responded with [500] in 4958ms
+2021-06-07T00:23:26.0137682+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:23:26.4310381+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:23:27.8555811+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:23:28.4158137+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:23:28.4476155+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:23:52.6756615+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:23:48.867Z",
+  "category": "string",
+  "amount": 0,
+  "description": "string",
+  "attachments": [
+    {
+      "fileName": "string",
+      "fileArray": 0
+    }
+  ]
+} Responded with [422] in 2588ms
+2021-06-07T00:24:07.5623648+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:23:48.867Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string",
+  "attachments": [
+    {
+      "fileName": "string",
+      "fileArray": 0
+    }
+  ]
+} Responded with [500] in 4458ms
+2021-06-07T00:24:20.2634600+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:23:48.867Z",
+  "category": "string",
+  "amount": 1000,
+  "description": "string"
+} Responded with [500] in 2464ms
+2021-06-07T00:24:55.2518638+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:24:55.5536089+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:24:56.8983329+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:24:57.2829663+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:24:57.3075591+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:25:22.3321530+04:00 [INF] (vfinance_api.DataManager.ExpenseManger) INSERT INTO 'v-finance-db'.'Expenses' ('ExpenseDate', 'Category', 'Amount', 'Description', 'CreationAt', 
+                                        'CreatedBy', 'ModifiedAt', 'ModifiedBy', 'IsActive') 
+                                        VALUES (@ExpenseDate,@Category,@Amount,@Description,@CreationAt,@CreatedBy,@ModifiedAt,@ModifiedBy,@IsActive)
+2021-06-07T00:25:24.1888644+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:25:11.473Z",
+  "category": "string",
+  "amount": 787,
+  "description": "string"
+} Responded with [500] in 5137ms
+2021-06-07T00:26:48.0212800+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:26:48.2531876+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:26:49.5174393+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:26:49.9182709+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:26:49.9463193+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:27:18.1721851+04:00 [INF] (vfinance_api.DataManager.ExpenseManger) INSERT INTO 'v-finance-db'.'Expenses' ('ExpenseDate', 'Category', 'Amount', 'Description', 'CreationAt', 
+                                        'CreatedBy', 'ModifiedAt', 'ModifiedBy', 'IsActive') 
+                                        VALUES (@ExpenseDate,@Category,@Amount,@Description,@CreationAt,@CreatedBy,@ModifiedAt,@ModifiedBy,@IsActive)
+2021-06-07T00:28:09.5310745+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:27:04.341Z",
+  "category": "string",
+  "amount": 43430,
+  "description": "string"
+} Responded with [500] in 59578ms
+2021-06-07T00:31:22.6097922+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:31:22.9465301+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:31:24.2190634+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:31:24.6078735+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:31:24.6331166+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:32:09.6901989+04:00 [INF] (vfinance_api.DataManager.ExpenseManger) INSERT INTO 'v-finance-db'.'Expenses' ('ExpenseDate', 'Category', 'Amount', 'Description', 'CreationAt', 
+                                        'CreatedBy', 'ModifiedAt', 'ModifiedBy', 'IsActive') 
+                                        VALUES (@ExpenseDate,@Category,@Amount,@Description,@CreationAt,@CreatedBy,@ModifiedAt,@ModifiedBy,@IsActive)
+2021-06-07T00:32:11.5438134+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:31:38.808Z",
+  "category": "category",
+  "amount": 32323,
+  "description": "description"
+} Responded with [500] in 20085ms
+2021-06-07T00:35:57.5794079+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T00:35:58.0535287+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T00:35:59.3721364+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T00:35:59.7633582+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T00:35:59.7889826+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating
+2021-06-07T00:36:41.5547441+04:00 [INF] (vfinance_api.DataManager.ExpenseManger) INSERT INTO Expenses (ExpenseDate, Category, Amount, Description, CreationAt, 
+                                        CreatedBy, ModifiedAt, ModifiedBy, IsActive) 
+                                        VALUES (@ExpenseDate,@Category,@Amount,@Description,@CreationAt,@CreatedBy,@ModifiedAt,@ModifiedBy,@IsActive)
+2021-06-07T00:36:43.2463627+04:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Source:[::1] Request: POST http localhost:5000/api/Expense  {
+  "expenseDate": "2021-06-06T20:36:13.743Z",
+  "category": "category",
+  "amount": 2120,
+  "description": "description"
+} Responded with [201] in 13691ms
