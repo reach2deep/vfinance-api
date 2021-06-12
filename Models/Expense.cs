@@ -19,7 +19,7 @@ namespace vfinance_api.Models
         public string CreatedBy { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public string ModifiedBy { get; set; }
-        public List<Attachment> Attachments { get; set; }
+        public List<Attachment?> Attachments { get; set; }
         public bool IsActive { get; set; }
     }
 

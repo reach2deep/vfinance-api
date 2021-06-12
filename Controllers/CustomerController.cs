@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using vfinance_api.Contracts;
+using vfinance_api.Dto;
 using vfinance_api.Dto.Request;
 using vfinance_api.Helper;
 using vfinance_api.Models;
@@ -18,15 +19,15 @@ namespace vfinance_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExpenseController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private readonly ILogger<ExpenseController> _logger;
-        private readonly IExpenseManager _expenseManger;
+        private readonly ILogger<CustomerController> _logger;
+        private readonly ICustomerManager _customerManger;
         private readonly IMapper _mapper;
 
-        public ExpenseController(IExpenseManager expenseManger, IMapper mapper, ILogger<ExpenseController> logger)
+        public CustomerController(ICustomerManager customerManger, IMapper mapper, ILogger<CustomerController> logger)
         {
-            _expenseManger = expenseManger;
+            _customerManger = customerManger;
             _mapper = mapper;
             _logger = logger;
         }
@@ -34,49 +35,49 @@ namespace vfinance_api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponse), Status201Created)]
         [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
-        public async Task<ApiResponse> Post([FromBody] CreateExpenseRequest createRequest)
+        public async Task<ApiResponse> Post([FromBody] CustomerDto createRequest)
         {
             if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
-            var person = _mapper.Map<Expense>(createRequest);
-            return new ApiResponse("Record successfully created.", await _expenseManger.CreateAsync(person), Status201Created);
+            var customer = _mapper.Map<Customer>(createRequest);
+            return new ApiResponse("Record successfully created.", await _customerManger.CreateAsync(customer), Status201Created);
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<ExpenseResponse>), Status200OK)]
-        public async Task<IEnumerable<ExpenseResponse>> Get()
+        [ProducesResponseType(typeof(IEnumerable<CustomerDto>), Status200OK)]
+        public async Task<IEnumerable<CustomerDto>> Get()
         {
-            var data = await _expenseManger.GetAllAsync();
-            var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data);
+            var data = await _customerManger.GetAllAsync();
+            var customers = _mapper.Map<IEnumerable<CustomerDto>>(data);
 
-            return expenses;
+            return customers;
         }
 
         [Route("paged")]
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<ExpenseResponse>), Status200OK)]
-        public async Task<IEnumerable<ExpenseResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
+        [ProducesResponseType(typeof(IEnumerable<CustomerDto>), Status200OK)]
+        public async Task<IEnumerable<CustomerDto>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
-            //var data = await _expenseManger.GetExpensesAsync(urlQueryParameters);
-            //var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data.Expenses);
+            //var data = await _customerManger.GetCustomersAsync(urlQueryParameters);
+            //var customers = _mapper.Map<IEnumerable<CustomerDto>>(data.Customers);
 
             //Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(data.Pagination));
 
-            //return expenses;
-            var data = await _expenseManger.GetAllAsync();
-            var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data);
+            //return customers;
+            var data = await _customerManger.GetAllAsync();
+            var customers = _mapper.Map<IEnumerable<CustomerDto>>(data);
 
-            return expenses;
+            return customers;
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        [ProducesResponseType(typeof(ExpenseResponse), Status200OK)]
-        [ProducesResponseType(typeof(ExpenseResponse), Status404NotFound)]
-        public async Task<ExpenseResponse> Get(long id)
+        [ProducesResponseType(typeof(CustomerDto), Status200OK)]
+        [ProducesResponseType(typeof(CustomerDto), Status404NotFound)]
+        public async Task<CustomerDto> Get(long id)
         {
-            var person = await _expenseManger.GetByIdAsync(id);
-            return person != null ? _mapper.Map<ExpenseResponse>(person)
+            var person = await _customerManger.GetByIdAsync(id);
+            return person != null ? _mapper.Map<CustomerDto>(person)
                                   : throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound);
         }
 
@@ -85,14 +86,14 @@ namespace vfinance_api.Controllers
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
         [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
-        public async Task<ApiResponse> Put(int id, [FromBody] ExpenseResponse updateRequest)
+        public async Task<ApiResponse> Put(int id, [FromBody] CustomerDto updateRequest)
         {
             if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
-            var expense = _mapper.Map<Expense>(updateRequest);
-            expense.Id = id;
+            var customer = _mapper.Map<Customer>(updateRequest);
+            customer.Id = id;
 
-            if (await _expenseManger.UpdateAsync(expense))
+            if (await _customerManger.UpdateAsync(customer))
             {
                 return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
             }
@@ -108,7 +109,7 @@ namespace vfinance_api.Controllers
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
         public async Task<ApiResponse> Delete(long id)
         {
-            if (await _expenseManger.DeleteAsync(id))
+            if (await _customerManger.DeleteAsync(id))
             {
                 return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true);
             }

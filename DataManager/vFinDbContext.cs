@@ -14,6 +14,10 @@ namespace vfinance_api.DataManager
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Loan> Loans { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+
 
         private readonly IConfiguration Configuration;
         private readonly ILogger<vFinDbContext> _logger;
@@ -50,6 +54,9 @@ namespace vfinance_api.DataManager
             modelBuilder.ApplyConfiguration(new AppUserEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ExpenseEntityConfiguration());
             modelBuilder.ApplyConfiguration(new AttachmentEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PaymentEntityConfiguration());
 
             _logger.Log(LogLevel.Information, "Completed OnModelCreating");
 

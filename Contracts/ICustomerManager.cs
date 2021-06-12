@@ -8,9 +8,9 @@ using vfinance_api.Models;
 
 namespace vfinance_api.Contracts
 {
-    public interface IExpenseManager : IRepository<Expense>
+    public interface ICustomerManager : IRepository<Customer>
     {
-        Task<(IEnumerable<Expense> Expenses, Pagination Pagination)> GetExpensesAsync(UrlQueryParameters urlQueryParameters);
+        Task<(IEnumerable<Customer> Customers, Pagination Pagination)> GetCustomersAsync(UrlQueryParameters urlQueryParameters);
 
         //Add more class specific methods here when neccessary
     }

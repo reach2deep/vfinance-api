@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using vfinance_api.Contracts;
+using vfinance_api.Dto;
 using vfinance_api.Dto.Request;
 using vfinance_api.Helper;
 using vfinance_api.Models;
@@ -18,15 +19,15 @@ namespace vfinance_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExpenseController : ControllerBase
+    public class LoanController : ControllerBase
     {
-        private readonly ILogger<ExpenseController> _logger;
-        private readonly IExpenseManager _expenseManger;
+        private readonly ILogger<LoanController> _logger;
+        private readonly ILoanManager _loanManger;
         private readonly IMapper _mapper;
 
-        public ExpenseController(IExpenseManager expenseManger, IMapper mapper, ILogger<ExpenseController> logger)
+        public LoanController(ILoanManager loanManger, IMapper mapper, ILogger<LoanController> logger)
         {
-            _expenseManger = expenseManger;
+            _loanManger = loanManger;
             _mapper = mapper;
             _logger = logger;
         }
@@ -34,49 +35,43 @@ namespace vfinance_api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponse), Status201Created)]
         [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
-        public async Task<ApiResponse> Post([FromBody] CreateExpenseRequest createRequest)
+        public async Task<ApiResponse> Post([FromBody] LoanDto createRequest)
         {
             if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
-            var person = _mapper.Map<Expense>(createRequest);
-            return new ApiResponse("Record successfully created.", await _expenseManger.CreateAsync(person), Status201Created);
+            var loan = _mapper.Map<Loan>(createRequest);
+            return new ApiResponse("Record successfully created.", await _loanManger.CreateAsync(loan), Status201Created);
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<ExpenseResponse>), Status200OK)]
-        public async Task<IEnumerable<ExpenseResponse>> Get()
+        [ProducesResponseType(typeof(IEnumerable<LoanDto>), Status200OK)]
+        public async Task<IEnumerable<LoanDto>> Get()
         {
-            var data = await _expenseManger.GetAllAsync();
-            var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data);
+            var data = await _loanManger.GetAllAsync();
+            var loans = _mapper.Map<IEnumerable<LoanDto>>(data);
 
-            return expenses;
+            return loans;
         }
 
         [Route("paged")]
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<ExpenseResponse>), Status200OK)]
-        public async Task<IEnumerable<ExpenseResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
+        [ProducesResponseType(typeof(IEnumerable<LoanDto>), Status200OK)]
+        public async Task<IEnumerable<LoanDto>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
-            //var data = await _expenseManger.GetExpensesAsync(urlQueryParameters);
-            //var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data.Expenses);
+            var data = await _loanManger.GetAllAsync();
+            var loans = _mapper.Map<IEnumerable<LoanDto>>(data);
 
-            //Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(data.Pagination));
-
-            //return expenses;
-            var data = await _expenseManger.GetAllAsync();
-            var expenses = _mapper.Map<IEnumerable<ExpenseResponse>>(data);
-
-            return expenses;
+            return loans;
         }
 
         [Route("{id:int}")]
         [HttpGet]
-        [ProducesResponseType(typeof(ExpenseResponse), Status200OK)]
-        [ProducesResponseType(typeof(ExpenseResponse), Status404NotFound)]
-        public async Task<ExpenseResponse> Get(long id)
+        [ProducesResponseType(typeof(LoanDto), Status200OK)]
+        [ProducesResponseType(typeof(LoanDto), Status404NotFound)]
+        public async Task<LoanDto> Get(long id)
         {
-            var person = await _expenseManger.GetByIdAsync(id);
-            return person != null ? _mapper.Map<ExpenseResponse>(person)
+            var person = await _loanManger.GetByIdAsync(id);
+            return person != null ? _mapper.Map<LoanDto>(person)
                                   : throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound);
         }
 
@@ -85,14 +80,14 @@ namespace vfinance_api.Controllers
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
         [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
-        public async Task<ApiResponse> Put(int id, [FromBody] ExpenseResponse updateRequest)
+        public async Task<ApiResponse> Put(int id, [FromBody] LoanDto updateRequest)
         {
             if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
-            var expense = _mapper.Map<Expense>(updateRequest);
-            expense.Id = id;
+            var loan = _mapper.Map<Loan>(updateRequest);
+            loan.Id = id;
 
-            if (await _expenseManger.UpdateAsync(expense))
+            if (await _loanManger.UpdateAsync(loan))
             {
                 return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
             }
@@ -108,7 +103,7 @@ namespace vfinance_api.Controllers
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
         public async Task<ApiResponse> Delete(long id)
         {
-            if (await _expenseManger.DeleteAsync(id))
+            if (await _loanManger.DeleteAsync(id))
             {
                 return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true);
             }

@@ -19,6 +19,7 @@ using FluentValidation;
 using vfinance_api.Dto.Request;
 using FluentValidation.AspNetCore;
 using vfinance_api.Infrastructure.Configs;
+using Newtonsoft.Json;
 
 namespace vfinance_api
 {
@@ -39,10 +40,10 @@ namespace vfinance_api
             services.AddCors();
             services.AddCors();
 
-            //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
+            //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support            
             services.AddControllers()
-                .AddJsonOptions(x => x.JsonSerializerOptions.IgnoreNullValues = true)
-                .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
+                .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; })
+                .AddJsonOptions(options => { options.JsonSerializerOptions.IgnoreNullValues = true; });
 
             //Register Automapper
             services.AddAutoMapper(typeof(MappingProfileConfiguration));
@@ -52,6 +53,8 @@ namespace vfinance_api
 
             //Register Interface Mappings for Repositories
             services.AddTransient<IExpenseManager, ExpenseManger>();
+            services.AddTransient<ICustomerManager, CustomerManager>();
+            services.AddTransient<ILoanManager, LoanManager>();
 
 
             //Register DTO Validators

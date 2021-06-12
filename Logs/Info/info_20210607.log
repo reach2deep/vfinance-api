@@ -150,3 +150,8 @@
   "amount": 2120,
   "description": "description"
 } Responded with [201] in 13691ms
+2021-06-07T11:22:00.2328008+04:00 [INF] (vfinance_api.Program) Starting web host
+2021-06-07T11:22:00.7339904+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnConfiguring
+2021-06-07T11:22:01.8882649+04:00 [INF] (vfinance_api.DataManager.vFinDbContext)  Completed OnConfiguring
+2021-06-07T11:22:02.4985959+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) OnModelCreating
+2021-06-07T11:22:02.5265963+04:00 [INF] (vfinance_api.DataManager.vFinDbContext) Completed OnModelCreating

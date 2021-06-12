@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using vfinance_api.DataManager;
 
 namespace vfinance_api.Migrations
 {
     [DbContext(typeof(vFinDbContext))]
-    partial class vFinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210610070412_added Customer")]
+    partial class addedCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,9 +96,6 @@ namespace vfinance_api.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("LoanId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime(6)");
 
@@ -117,8 +116,6 @@ namespace vfinance_api.Migrations
                     b.HasIndex("FilePath")
                         .IsUnique()
                         .HasDatabaseName("Idx_FilePath");
-
-                    b.HasIndex("LoanId");
 
                     b.ToTable("Attachments");
                 });
@@ -232,130 +229,6 @@ namespace vfinance_api.Migrations
                     b.ToTable("Expenses");
                 });
 
-            modelBuilder.Entity("vfinance_api.Models.Loan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("BalanceAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("CreationAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("InterestRate")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTime>("LoanDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("LoanNumber")
-                        .HasColumnType("varchar(95)");
-
-                    b.Property<string>("LoanTerm")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("ModifiedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("PaymentAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<DateTime>("PaymentStartDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<decimal>("PrincipalAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int?>("ReferredBYId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("TotalInterest")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<decimal>("TotalPaidAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<decimal>("TotalPayment")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.HasKey("Id")
-                        .HasName("PK_LoanId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("LoanNumber")
-                        .IsUnique()
-                        .HasDatabaseName("Idx_LoanNumber");
-
-                    b.HasIndex("ReferredBYId");
-
-                    b.ToTable("Loans");
-                });
-
-            modelBuilder.Entity("vfinance_api.Models.Payment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CollectedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("CollectedBy")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("LoadIdId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("PaymentAmount")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("PaymentDueNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PaymentStatus")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id")
-                        .HasName("PK_PaymentId");
-
-                    b.HasIndex("LoadIdId");
-
-                    b.HasIndex("PaymentDueNumber")
-                        .IsUnique()
-                        .HasDatabaseName("Idx_PaymentDueNumber");
-
-                    b.ToTable("Payments");
-                });
-
             modelBuilder.Entity("vfinance_api.Models.Attachment", b =>
                 {
                     b.HasOne("vfinance_api.Models.Customer", null)
@@ -365,34 +238,6 @@ namespace vfinance_api.Migrations
                     b.HasOne("vfinance_api.Models.Expense", null)
                         .WithMany("Attachments")
                         .HasForeignKey("ExpenseId");
-
-                    b.HasOne("vfinance_api.Models.Loan", null)
-                        .WithMany("Attachments")
-                        .HasForeignKey("LoanId");
-                });
-
-            modelBuilder.Entity("vfinance_api.Models.Loan", b =>
-                {
-                    b.HasOne("vfinance_api.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
-                    b.HasOne("vfinance_api.Models.Customer", "ReferredBY")
-                        .WithMany()
-                        .HasForeignKey("ReferredBYId");
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("ReferredBY");
-                });
-
-            modelBuilder.Entity("vfinance_api.Models.Payment", b =>
-                {
-                    b.HasOne("vfinance_api.Models.Loan", "LoadId")
-                        .WithMany()
-                        .HasForeignKey("LoadIdId");
-
-                    b.Navigation("LoadId");
                 });
 
             modelBuilder.Entity("vfinance_api.Models.Customer", b =>
@@ -401,11 +246,6 @@ namespace vfinance_api.Migrations
                 });
 
             modelBuilder.Entity("vfinance_api.Models.Expense", b =>
-                {
-                    b.Navigation("Attachments");
-                });
-
-            modelBuilder.Entity("vfinance_api.Models.Loan", b =>
                 {
                     b.Navigation("Attachments");
                 });
